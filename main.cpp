@@ -1,7 +1,9 @@
 #include <iostream>
+#include "opencv2/opencv.hpp"
 //#include <stdio.h>
 
 using namespace std;
+using namespace cv;
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -22,5 +24,40 @@ int main() {
     cout << s3 << endl;
     unsigned ui = -1;
     cout << ui << endl;
+
+
+    cout << "开始切割" << endl;
+    Mat image = imread("/home/yinlei/miao.png");
+    Mat image1(image.rows, image.cols, image.type(), Scalar(180, 120, 50));
+    Mat image2(image.rows, image.cols, image.type(), Scalar(180, 120, 50));
+    Point center(image.cols/2,image.rows/2);
+    int radius = 200;
+
+    circle(image, center, radius, Scalar(0, 200, 100), 2, 8, 0);
+
+    for (int x = 0; x < image.cols; x++)
+    {
+        for (int y = 0; y < image.rows; y++)
+        {
+            int temp = ((x - center.x) * (x - center.x) + (y - center.y) *(y - center.y));
+            if (temp < (radius * radius))
+            {
+                image1.at<Vec3b>(Point(x, y))[0] = image.at<Vec3b>(Point(x, y))[0];
+                image1.at<Vec3b>(Point(x, y))[1] = image.at<Vec3b>(Point(x, y))[1];
+                image1.at<Vec3b>(Point(x, y))[2] = image.at<Vec3b>(Point(x, y))[2];
+            }
+            else
+            {
+                image2.at<Vec3b>(Point(x, y))[0] = image.at<Vec3b>(Point(x, y))[0];
+                image2.at<Vec3b>(Point(x, y))[1] = image.at<Vec3b>(Point(x, y))[1];
+                image2.at<Vec3b>(Point(x, y))[2] = image.at<Vec3b>(Point(x, y))[2];
+            }
+        }
+    }
+
+    imshow("image1", image1);
+    imshow("image2", image2);
+
+    while (uchar(waitKey() != 'q')) {}
     return 0;
 }
