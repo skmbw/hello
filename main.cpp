@@ -5,9 +5,9 @@
 using namespace std;
 using namespace cv;
 
-#if !_ISOC11_SOURCE
-using ::gets;
-#endif
+//#if !_ISOC11_SOURCE
+//using ::gets;
+//#endif
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -31,17 +31,19 @@ int main() {
 
 
     cout << "开始切割" << endl;
-    Mat image = imread("/home/yinlei/miao.jpg");
+    Mat image = imread("/home/yinlei/ic.jpg", 1);
+    imshow("source", image);
 //    MatSize matSize = image.size;
 //    Mat image1(image.rows, image.cols, image.type(), Scalar(180, 120, 50));
     Mat image1(image.rows, image.cols, image.type());
     Mat image2(image.rows, image.cols, image.type(), Scalar(180, 120, 50));
 //    Mat image2(image.rows, image.cols, image.type());
     Point center(image.cols / 2, image.rows / 2);
-    int radius = 200;
+    int radius = 15;
 
     // 图片、中心、半径、初始颜色、边线粗细、边界类型
-    circle(image, center, radius, Scalar(0, 200, 100), 0, 8, 0);
+    circle(image, center, radius, Scalar(0, 200, 100), 0, 4, 0);
+//    circle(image, center, radius, Scalar(255, 255, 255), 0, 8, 0);
 
     for (int x = 0; x < image.cols; x++) {
         for (int y = 0; y < image.rows; y++) {
