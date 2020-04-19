@@ -1,4 +1,4 @@
-//
+// Ctrl+D 中断命令行输入，windows Ctrl+C 然后 Enter
 // Created by yinlei on 2020/4/19.
 //
 

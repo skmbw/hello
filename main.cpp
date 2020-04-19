@@ -9,7 +9,15 @@ using namespace std;
 //#if !_ISOC11_SOURCE
 //using ::gets;
 //#endif
-
+/**
+ * C++数据类型的选用：
+ * 1、明确知道非负，使用无符号的
+ * 2、整形一般使用int，或者long long（short太小，long一般和int一样大），对应java的int和long
+ * 3、算术表达式中不使用char或者bool，char在不同的机器上可能不同。
+ * 4、浮点运算用double，float精度不够，long double没必要。
+ *
+ * @return
+ */
 int main() {
     AvgPrice price;
     price.avg_price();
