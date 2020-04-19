@@ -62,6 +62,7 @@ class Sales_item {
 public:
     // constructors are explained in section 7.1.4, pages 262 - 265
     // default constructor needed to initialize members of built-in type
+    // 默认构造函数，需要对内建的基本类型进行初始化
     Sales_item() : units_sold(0), revenue(0.0) {}
 
     Sales_item(const std::string &book) :
