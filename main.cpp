@@ -20,6 +20,7 @@ using namespace std;
  */
 int main() {
     std::string str("yinlei123");
+    // string.size() 返回的是无符号的数据，不要和有符号的数进行比较
     if (str.size() > 1) { // 这个类型是 string::size_type
         std::cout << str << std::endl;
     }
