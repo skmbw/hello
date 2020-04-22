@@ -2,6 +2,7 @@
 //#include "opencv2/opencv.hpp"
 #include "avg_price.h"
 //#include <stdio.h>
+#include "Test.h"
 
 using namespace std;
 //using namespace cv;
@@ -19,6 +20,8 @@ using namespace std;
  * @return
  */
 int main() {
+    Test test;
+    test.test(); // 用于以后学习新知识测试
     std::string str("yinlei123");
     // string.size() 返回的是无符号的数据，不要和有符号的数进行比较
     if (str.size() > 1) { // 这个类型是 string::size_type
@@ -26,7 +29,7 @@ int main() {
     }
     int a = -1 % 256; // = -1
     unsigned char cc = -1; // 超出0-255之间的数，会被循环赋值=（取模余数+数值范围）。数值范围是256，被除数÷除数=商……余数，余数=被除数-商×除数
-    int c = (-7)/(unsigned)4;
+//    int c = (-7)/(unsigned)4; // warning C4308: 负整型常量转换为无符号类型
     AvgPrice price;
     price.avg_price();
     std::cout << "Hello, World!" << std::endl;
@@ -34,13 +37,14 @@ int main() {
     // 要用的话，也要使用const char * ab = "yinlei尹雷";
     char ab[] = "yinlei尹雷";
     cout << ab << endl;
-    string s = "yinqianxun尹千寻";
+
     // 'printf'在此作用域中尚未声明，见
     // https://zhidao.baidu.com/question/390847449618643645.html
     printf("c style printf %s\n", ab); // 在stdio.h中
 
-    // char数组就是字符串
-    string s2 = ab;
+    string s = "yinqianxun尹雷"; // error C2001: 常量中有换行符，含有汉字‘尹千寻’就不行了？？
+    string s2 = ab; // char数组就是字符串
+//    string s2 = "zxvxzc";
     const char *s3 = s2.c_str();
     cout << s << endl;
     cout << s2 << endl;

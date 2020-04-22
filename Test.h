@@ -7,7 +7,9 @@
 
 
 class Test {
-
+public:
+    void test();
+    void learn();
 };
 
 
