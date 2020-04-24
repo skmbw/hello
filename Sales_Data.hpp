@@ -8,7 +8,7 @@
 struct Sales_Data {
     // 默认构造函数
     Sales_Data() = default;
-    Sales_Data(std::istream & istream) {}
+    Sales_Data(std::istream & istream); // 这个构造函数还没有初始化
     Sales_Data(const std::string &no): bookNo(no) {}
     Sales_Data(const std::string &no, unsigned n, double p):
         bookNo(no), units_sold(n), revenue(p * n) {}
