@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+// struct定义的类，默认访问控制符是public的
 struct Sales_Data {
     // 默认构造函数
     Sales_Data() = default;
@@ -23,6 +24,7 @@ struct Sales_Data {
     double avg_price() const;
 
     std::string bookNo;
+    // 内置类型，也就是基本类型，如果在类内或者块内，不默认初始化，那么它的值是未知的，很危险。
     unsigned  units_sold = 0;
     double revenue = 0.0;
 };
