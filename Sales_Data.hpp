@@ -67,3 +67,7 @@ Sales_Data add(Sales_Data &lv, Sales_Data &rv) {
     sum.combine(rv); // Sales_Data已经定义了一个方法，将两个对象合并（相加）到一起
     return sum;
 }
+
+Sales_Data::Sales_Data(std::istream &istream) {
+    read(istream, *this); // 再建一个cpp文件吧，将声明和定义分开。
+}
