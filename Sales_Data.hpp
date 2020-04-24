@@ -5,6 +5,13 @@
 #include <iostream>
 
 struct Sales_Data {
+    // 默认构造函数
+    Sales_Data() = default;
+    Sales_Data(std::istream & istream) {}
+    Sales_Data(const std::string &no): bookNo(no) {}
+    Sales_Data(const std::string &no, unsigned n, double p):
+        bookNo(no), units_sold(n), revenue(p * n) {}
+
     // 规则太复杂
     // const是修改this指针的，默认this是指向类类型非常量版本的常量指针
     // 现在表示this是指向常量的指针
