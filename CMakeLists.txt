@@ -4,6 +4,6 @@ project(hello)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp Test.cpp Test.h Sales_item.h avg_price.h Sales_Data.hpp)
+set(SOURCE_FILES main.cpp Test.cpp Test.h Sales_item.h avg_price.h Sales_Data.hpp Sales_data.cpp)
 add_executable(hello ${SOURCE_FILES})
 target_link_libraries(hello ${OpenCV_LIBS})

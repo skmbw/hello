@@ -5,8 +5,12 @@
 #include "Test.h"
 #include <string>
 #include <vector>
+#include "Sales_Data.hpp"
 
 void Test::test() {
+    Sales_Data salesData("as-123");
+    print(std::cout, salesData) << std::endl; // endl flush cache
+
     std::cout << "hello test." << std::endl;
     learn();
 }

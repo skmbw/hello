@@ -1,11 +1,19 @@
 //
 // Created by yinlei on 2020-4-24.
 //
+// if not preprocesss command, will multi-define
+#ifndef SALES_DATA_HPP
+#define SALES_DATA_HPP
+
 #include <string>
 #include <iostream>
 
 // struct定义的类，默认访问控制符是public的
 struct Sales_Data {
+//    friend Sales_Data add(const Sales_Data& data, const Sales_Data& another);
+//    friend std::ostream &print(std::ostream& ostream, const Sales_Data& data);
+//    friend std::istream &read(std::istream& istream, Sales_Data& data);
+
     // 默认构造函数
     Sales_Data() = default;
     Sales_Data(std::istream & istream); // 这个构造函数还没有初始化
@@ -30,44 +38,7 @@ struct Sales_Data {
 };
 
 Sales_Data add(const Sales_Data &one, const Sales_Data &another);
-std::ostream & print(std::ostream &os, const Sales_Data &data);
-std::istream & read(std::istream &, Sales_Data data); // 省略形参名
+std::ostream & print(std::ostream &os, const Sales_Data &data); // print(std::ostream&, Sales_Data const&)’未定义的引用
+std::istream & read(std::istream &, Sales_Data &data); // 省略形参名,the second param forget the &, undefined ref
 
-double Sales_Data::avg_price() const {
-    if (units_sold) {
-        return this->revenue / this->units_sold;
-    } else {
-        return 0;
-    }
-}
-
-Sales_Data & Sales_Data::combine(const Sales_Data &data) {
-    this->units_sold += data.units_sold;
-    this->revenue += data.revenue;
-    // this是指针，指向当前对象
-    return *this; // 解引用才能获得当前对象，一个对象正好可以返回给引用
-}
-
-// 以下是非成员函数
-std::istream & read(std::istream &is, Sales_Data &data) {
-    double price = 0;
-    is >> data.bookNo >> data.units_sold >> price;
-    data.revenue = price * data.units_sold;
-    return is;
-}
-
-std::ostream & print(std::ostream &os, Sales_Data &data) {
-    os << data.isbn() << " " << data.units_sold << " "
-        << data.revenue << " " << data.avg_price();
-    return os;
-}
-
-Sales_Data add(Sales_Data &lv, Sales_Data &rv) {
-    Sales_Data sum = lv; // 值拷贝
-    sum.combine(rv); // Sales_Data已经定义了一个方法，将两个对象合并（相加）到一起
-    return sum;
-}
-
-Sales_Data::Sales_Data(std::istream &istream) {
-    read(istream, *this); // 再建一个cpp文件吧，将声明和定义分开。
-}
+#endif
