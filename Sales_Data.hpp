@@ -13,7 +13,7 @@ struct Sales_Data {
 //    friend Sales_Data add(const Sales_Data& data, const Sales_Data& another);
 //    friend std::ostream &print(std::ostream& ostream, const Sales_Data& data);
 //    friend std::istream &read(std::istream& istream, Sales_Data& data);
-
+public:
     // 默认构造函数
     Sales_Data() = default;
     Sales_Data(std::istream & istream); // 这个构造函数还没有初始化
@@ -29,6 +29,8 @@ struct Sales_Data {
     }
 
     Sales_Data& combine(const Sales_Data &data);
+
+private:
     double avg_price() const;
 
     std::string bookNo;
