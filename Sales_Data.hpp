@@ -9,10 +9,11 @@
 #include <iostream>
 
 // struct定义的类，默认访问控制符是public的
-struct Sales_Data {
-//    friend Sales_Data add(const Sales_Data& data, const Sales_Data& another);
-//    friend std::ostream &print(std::ostream& ostream, const Sales_Data& data);
-//    friend std::istream &read(std::istream& istream, Sales_Data& data);
+class Sales_Data {
+    // 不声明友元，这三个函数将无法访问Sales_Data的成员变量
+    friend Sales_Data add(const Sales_Data& data, const Sales_Data& another);
+    friend std::ostream &print(std::ostream& ostream, const Sales_Data& data);
+    friend std::istream &read(std::istream& istream, Sales_Data& data);
 public:
     // 默认构造函数
     Sales_Data() = default;
