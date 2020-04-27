@@ -20,6 +20,7 @@ public:
     Sales_Data() = default;
     Sales_Data(std::istream & istream); // 这个构造函数还没有初始化
     Sales_Data(const std::string &no): bookNo(no) {}
+    // 构造函数初始化列表的顺序是按照成员定义的顺序开始的，跟初始化列表中的顺序没有关系
     Sales_Data(const std::string &no, unsigned n, double p):
         bookNo(no), units_sold(n), revenue(p * n) {}
 
