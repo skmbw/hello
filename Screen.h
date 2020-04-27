@@ -12,7 +12,10 @@
  * 屏幕类
  */
 class Screen {
+    // WindowMgr这个类是Screen的友元，那么WindowMgr类的所有方法都能访问Screen的私有成员
     friend class WindowMgr;
+    // 只指定clear方法是Screen的友元，只有这个方法可以访问Screen的私有成员
+//    friend void WindowMgr::clear(ScreenIndex index);
 public:
     // 定义类型别名，要先定义，后面才能使用。一般也是定义在开头部分
     using pos = std::string::size_type;
