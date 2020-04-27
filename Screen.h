@@ -6,11 +6,13 @@
 #define HELLO_SCREEN_H
 
 #include <string>
+#include "WindowMgr.h"
 
 /**
  * 屏幕类
  */
 class Screen {
+    friend class WindowMgr;
 public:
     // 定义类型别名，要先定义，后面才能使用。一般也是定义在开头部分
     using pos = std::string::size_type;
@@ -27,12 +29,23 @@ public:
 
     Screen &move(pos rw, pos cur);
     Screen & set(char c);
-    Screen & set(pos h, pos w, char c);
+    Screen & set(pos r, pos col, char ch);
+    Screen & display(std::ostream &ostream) {
+        do_display(ostream);
+        return *this;
+    }
+    const Screen & display(std::ostream &ostream) const {
+        do_display(ostream);
+        return *this;
+    }
 private:
     pos cursor = 0;
     pos width = 0;
     pos height = 0;
     std::string contents;
+    void do_display(std::ostream &ostream) const {
+        ostream << contents;
+    }
 };
 
 // 内联函数一般要在.h头文件中定义
@@ -43,13 +56,13 @@ inline Screen &Screen::move(pos rw, pos cur) {
     return *this; // 返回当前屏幕的引用
 }
 
-char Screen::get(pos rw, pos cur) const {
-    pos row = rw * width;
-    return contents[row + cur];
-}
-
 inline Screen & Screen::set(char c) {
     contents[cursor] = c;
+    return *this;
+}
+
+inline Screen & Screen::set(pos r, pos col, char ch) {
+    contents[r * width + col] = ch; // 将ch赋值给指定位置的字符
     return *this;
 }
 #endif //HELLO_SCREEN_H
