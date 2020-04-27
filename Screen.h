@@ -13,7 +13,7 @@
  */
 class Screen {
     // WindowMgr这个类是Screen的友元，那么WindowMgr类的所有方法都能访问Screen的私有成员
-    friend class WindowMgr;
+    friend class WindowMgr; // 友元不具有传递性
     // 只指定clear方法是Screen的友元，只有这个方法可以访问Screen的私有成员
 //    friend void WindowMgr::clear(ScreenIndex index);
 public:
