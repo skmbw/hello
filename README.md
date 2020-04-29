@@ -2,3 +2,4 @@
 * 可能版本低，那就安装一个版本高的，做一下链接
 * 版本高，就是软链接没做，那就做
 * https://www.cnblogs.com/xxd-qyr/p/11014491.html
+* ln -s 真实libpath 符号链接lib名 ln -s /usr/local/lib64/libstdc++.so.6.0.23 libstdc++.so.6
