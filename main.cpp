@@ -28,7 +28,7 @@ int main() {
         std::cout << str << std::endl;
     }
     int a = -1 % 256; // = -1
-    unsigned char cc = -1; // 超出0-255之间的数，会被循环赋值=（取模余数+数值范围）。数值范围是256，被除数÷除数=商……余数，余数=被除数-商×除数
+    unsigned char cc = -1; // 超出0-255之间的数，会被循环赋值=（取模余数+数值范围(模)）。数值范围是256，被除数÷除数=商……余数，余数=被除数-商×除数
 //    int c = (-7)/(unsigned)4; // warning C4308: 负整型常量转换为无符号类型
     AvgPrice price;
     price.avg_price();
