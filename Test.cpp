@@ -6,8 +6,13 @@
 #include <string>
 #include <vector>
 #include "Sales_Data.hpp"
+#include <fstream>
 
 void Test::test() {
+    std::ifstream ifstream;
+    ifstream.open("~/nohub.out");
+    std::cout << ifstream.is_open() << std::endl;
+
     Sales_Data salesData("as-123");
     print(std::cout, salesData) << std::endl; // endl flush cache
 
