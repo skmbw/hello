@@ -9,9 +9,21 @@
 #include <fstream>
 
 void Test::test() {
-    std::ifstream ifstream;
-    ifstream.open("~/nohub.out");
-    std::cout << ifstream.is_open() << std::endl;
+    std::ofstream ofstream;
+    ofstream.open("/home/yinlei/nohub.out");
+    std::string s("adb");
+    ofstream << s;
+    std::cout << s << ofstream.is_open() << std::endl;
+    ofstream.close();
+
+    std::ifstream file("/home/yinlei/nohub.out");
+    char s1[4];
+    file.getline(s1, 4);
+    std::cout << s1 << std::endl;
+
+//    while (getline(file, s)) // 重载的自动调用的istream的getline，不是string的
+
+    file.close();
 
     Sales_Data salesData("as-123");
     print(std::cout, salesData) << std::endl; // endl flush cache
