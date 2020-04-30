@@ -126,7 +126,7 @@ __pycache__/
 *$py.class
 
 # C extensions
-*.so
+#*.so
 
 # Distribution / packaging
 .Python
@@ -277,12 +277,12 @@ cython_debug/
 
 ### C template
 # Prerequisites
-*.d
+#*.d
 
 # Object files
-*.o
+#*.o
 *.ko
-*.obj
+#*.obj
 *.elf
 
 # Linker output
@@ -291,25 +291,25 @@ cython_debug/
 *.exp
 
 # Precompiled Headers
-*.gch
-*.pch
+#*.gch
+#*.pch
 
 # Libraries
-*.lib
-*.a
-*.la
-*.lo
+#*.lib
+#*.a
+#*.la
+#*.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
-*.so
+#*.dll
+#*.so
 *.so.*
-*.dylib
+#*.dylib
 
 # Executables
-*.exe
-*.out
-*.app
+#*.exe
+#*.out
+#*.app
 *.i*86
 *.x86_64
 *.hex
